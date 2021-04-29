@@ -1,10 +1,25 @@
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Achievements from "./Components/Achievements/Achievements";
+import Home from "./Components/Home/Home";
+import Shop from "./Components/Shop/Shop";
 import "./styles.css";
+import Footer from "./Components/Footer/Footer";
+import {Box} from "@chakra-ui/react";
+import React from "react";
+import Navbar from "./Components/Navbar/Navbar";
 
 export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+    return (
+        <Box d="flex" flexDirection="column" alignItems="center" h='100vh'>
+            <Router>
+            <Navbar/>
+                <Switch>
+                    <Route exact path={["/", "/home"]} component={Home} />
+                    <Route path="/achievements" component={Achievements} />
+                    <Route path="/shop" component={Shop} />
+                </Switch>
+            </Router>
+            <Footer/>
+        </Box>
+    );
 }
