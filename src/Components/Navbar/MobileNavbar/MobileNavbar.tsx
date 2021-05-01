@@ -4,7 +4,7 @@ import {
     DrawerBody,
     DrawerContent,
     DrawerHeader,
-    DrawerOverlay,
+    DrawerOverlay, Heading,
     IconButton,
     useDisclosure,
 } from "@chakra-ui/react";
@@ -25,7 +25,7 @@ export default function MobileNavbar() {
                         <DrawerHeader borderBottomWidth="1px" h="100%" d="flex" flexDirection="row" alignItems="center"
                                       justifyContent="center">
                             <CookieIcon boxSize="40px" mr="12px"/>
-                            Cookie Clicker
+                            <Heading size="s" color="white">Cookie Clicker</Heading>
                         </DrawerHeader>
                         <DrawerBody d="flex" flexDirection="column" alignItems="center" justify="content">
                             <NavbarLinks/>

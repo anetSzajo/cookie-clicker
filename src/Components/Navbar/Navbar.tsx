@@ -17,7 +17,7 @@ export default function Navbar() {
     const [isDeviceDesktop] = useMediaQuery(`(min-width: ${breakpoints.md})`)
 
     return (
-        <Box d="flex" alignItems="center" h="50px" w="100%" bg="tomato" position="fixed" top="0" p="4px">
+        <Box id="navbar" d="flex" alignItems="center" h="50px" w="100%" bg="tomato" position="fixed" top="0" p="4px">
             {isDeviceDesktop
                 ?
                 <DesktopNavbar/>

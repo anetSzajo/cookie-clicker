@@ -4,7 +4,7 @@ import React from "react";
 
 export default function NavbarLinks() {
     return (
-        <HStack spacing="24px">
+        <HStack spacing="24px" id="navbar--links___container">
             <Link as={ReactRouterLink} to="/home">
                 HOME
             </Link>
