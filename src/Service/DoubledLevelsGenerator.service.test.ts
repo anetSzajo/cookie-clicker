@@ -7,12 +7,12 @@ describe("create levels map", () => {
             new Error('Level limit should be 3 at least. Please use correct level limit.')
         )
     })
-    it("Should render 3 levels map", () => {
+    it("Should create 3 levels map", () => {
         const mapTemplate = new Map([[1, 0], [2, 10], [3, 20]]);
         const levelsMap = new DoubledLevelsGenerator().create(3)
         expect(mapTemplate).toEqual(levelsMap)
     })
-    it("Should render levels map correctly", () => {
+    it("Should create levels map correctly", () => {
 
         const mapTemplate = new Map([[1, 0], [2, 10], [3, 20], [4, 40], [5, 80], [6, 160], [7, 320], [8, 640], [9, 1280], [10, 2560]]);
         const levelsMap = new DoubledLevelsGenerator().create(10)

@@ -25,12 +25,15 @@
   "devDependencies": {
     "@babel/runtime": "7.13.8",
     "@types/react-router-dom": "^5.1.7",
+    "cypress": "^7.2.0",
     "typescript": "~4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test:unit": "react-scripts test --env=jsdom --watchAll=false",
+    "test:e2e": "cypress run",
+    "test:all": "react-scripts test --env=jsdom --watchAll=false && cypress run",
     "eject": "react-scripts eject"
   },
   "browserslist": [

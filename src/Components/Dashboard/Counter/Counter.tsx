@@ -10,7 +10,7 @@ export default function Counter({counter}: ComponentProps) {
     return (
         <Box d="flex" flexDirection="row" alignItems="center" justifyContent="center">
             <CookieIcon boxSize="2rem" mr="1rem"/>
-            <Text fontSize="4xl">{counter}</Text>
+            <Text id="counter" fontSize="4xl">{counter}</Text>
         </Box>
     )
 }
