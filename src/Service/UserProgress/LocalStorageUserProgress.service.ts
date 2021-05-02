@@ -1,7 +1,7 @@
 import {UserProgressInterface} from './UserProgress.interface';
 import {UserProgress} from "./UserProgress.model";
 
-export class UserProgressServiceService implements UserProgressInterface {
+export class LocalStorageUserProgressService implements UserProgressInterface {
     _userProgress: UserProgress = this._loadUserProgressFromLocalStorage();
 
     _loadUserProgressFromLocalStorage(): UserProgress {

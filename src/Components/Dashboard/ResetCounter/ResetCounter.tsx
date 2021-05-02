@@ -51,7 +51,7 @@ export default function ResetCounter({resetCounter, isDisabled}: ComponentProps)
                             <Button ref={cancelRef.current} onClick={onAlertClose}>
                                 Cancel
                             </Button>
-                            <Button colorScheme="orange" onClick={handleConfirmResetButtonClick} ml={3}>
+                            <Button colorScheme="orange" id="confirmResetButton" onClick={handleConfirmResetButtonClick} ml={3}>
                                 Reset
                             </Button>
                         </AlertDialogFooter>

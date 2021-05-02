@@ -3,12 +3,12 @@ import {Box, VStack} from "@chakra-ui/react";
 import CookieClicker from "../CookieClicker/CookieClicker";
 import Dashboard from "../Dashboard/Dashboard";
 import {DoubledLevelsGenerator} from "../../Service/LevelsGenerator/DoubledLevelsGenerator.service";
-import {UserProgressServiceService} from "../../Service/UserProgress/UserProgressService.service";
+import {LocalStorageUserProgressService} from "../../Service/UserProgress/LocalStorageUserProgress.service";
 import {UserProgress} from "../../Service/UserProgress/UserProgress.model";
 
 const levelsMap: Map<number, number> = new DoubledLevelsGenerator().create(10);
-const userProgressService = new UserProgressServiceService();
-const userProgress: UserProgress = userProgressService.getUserProgress();
+const localStorageUserProgressService = new LocalStorageUserProgressService();
+const userProgress: UserProgress = localStorageUserProgressService.getUserProgress();
 
 export default function Home() {
     const [counter, setCounter] = React.useState(userProgress.clickCounter);
@@ -19,7 +19,7 @@ export default function Home() {
     if (higherLevel && counter >= higherLevel) {
         setLevel((previousLevel) => {
             const nextLevel = previousLevel + 1
-            userProgressService.updateLevel(nextLevel)
+            localStorageUserProgressService.updateLevel(nextLevel)
             return nextLevel
         });
     }
@@ -27,14 +27,14 @@ export default function Home() {
     const handleClickCookie = () => {
         setCounter((previousCounter) => {
             const nextCounter = previousCounter + 1
-            userProgressService.updateClickCounter(nextCounter)
+            localStorageUserProgressService.updateClickCounter(nextCounter)
             return nextCounter
         });
     }
 
 
     const resetCounter = () => {
-        const resetUserProgress = userProgressService.resetUserProgress();
+        const resetUserProgress = localStorageUserProgressService.resetUserProgress();
         setCounter(resetUserProgress.clickCounter);
         setLevel(resetUserProgress.level)
     }
