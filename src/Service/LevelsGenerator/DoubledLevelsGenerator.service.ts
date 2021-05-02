@@ -1,4 +1,4 @@
-import {LevelsGeneratorInterface} from "./LevelsGeneratorInterface";
+import {LevelsGeneratorInterface} from "./LevelsGenerator.interface";
 
 export class DoubledLevelsGenerator implements LevelsGeneratorInterface {
     create(levelsLimit: number): Map<number, number> {

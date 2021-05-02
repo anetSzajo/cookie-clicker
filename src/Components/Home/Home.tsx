@@ -3,46 +3,40 @@ import {Box, VStack} from "@chakra-ui/react";
 import CookieClicker from "../CookieClicker/CookieClicker";
 import Dashboard from "../Dashboard/Dashboard";
 import {DoubledLevelsGenerator} from "../../Service/LevelsGenerator/DoubledLevelsGenerator.service";
+import {UserProgressServiceService} from "../../Service/UserProgress/UserProgressService.service";
+import {UserProgress} from "../../Service/UserProgress/UserProgress.model";
 
 const levelsMap: Map<number, number> = new DoubledLevelsGenerator().create(10);
-
-let userProgress: { level: number, counter: number };
-try {
-    let localStorageData: string | null = localStorage.getItem('userProgress');
-    if (localStorageData) {
-        userProgress = JSON.parse(localStorageData);
-    }
-} catch (e) {
-    userProgress = {level: 1, counter: 0}
-}
+const userProgressService = new UserProgressServiceService();
+const userProgress: UserProgress = userProgressService.getUserProgress();
 
 export default function Home() {
-    const [counter, setCounter] = React.useState(userProgress.counter);
+    const [counter, setCounter] = React.useState(userProgress.clickCounter);
     const [level, setLevel] = React.useState(userProgress.level);
     const higherLevel: number | undefined = levelsMap.get(level + 1);
 
 
     if (higherLevel && counter >= higherLevel) {
-        setLevel((preciousLevel) => {
-            const nextLevel = preciousLevel + 1
-            localStorage.setItem("userProgress", JSON.stringify({level: nextLevel, counter: counter}))
+        setLevel((previousLevel) => {
+            const nextLevel = previousLevel + 1
+            userProgressService.updateLevel(nextLevel)
             return nextLevel
         });
     }
 
     const handleClickCookie = () => {
-        setCounter((preciousCounter) => {
-            const nextCounter = preciousCounter + 1
-            localStorage.setItem("userProgress", JSON.stringify({level: level, counter: nextCounter}))
+        setCounter((previousCounter) => {
+            const nextCounter = previousCounter + 1
+            userProgressService.updateClickCounter(nextCounter)
             return nextCounter
         });
     }
 
 
     const resetCounter = () => {
-        localStorage.setItem("userProgress", JSON.stringify({level: 1, counter: 0}));
-        setCounter(0);
-        setLevel(1)
+        const resetUserProgress = userProgressService.resetUserProgress();
+        setCounter(resetUserProgress.clickCounter);
+        setLevel(resetUserProgress.level)
     }
 
     return (
