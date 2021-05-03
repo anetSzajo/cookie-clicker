@@ -20,10 +20,11 @@ export default function Achievements() {
     }
 
     return (
-        <Box mt="6rem" w="60%" d="flex" flexDirection="column" alignItems="center" justifyContent="center"
-             border="3px dashed tomato" p="1rem" borderRadius="lg" boxShadow="4px 9px 15px 0 rgb(0 0 0 / 12%)">
-            <Heading as="h1" size="2xl" m="1rem">Achievements</Heading>
-            <Box w="70%">
+        <Box mt="4.5rem" w={{sm: "80%", md: "60%"}} d="flex" flexDirection="column" alignItems="center" justifyContent="center"
+             border="3px dashed tomato" p="1.5rem" borderRadius="lg" boxShadow="4px 9px 15px 0 rgb(0 0 0 / 12%)">
+            <Heading as="h1" size="2xl">Achievements</Heading>
+            <Heading as="h2" size="md" m="1rem" textAlign="center">Your unlocked achievements</Heading>
+            <Box w="100%">
                 <div>{achievements}</div>
             </Box>
         </Box>

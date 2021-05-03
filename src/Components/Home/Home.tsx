@@ -2,12 +2,8 @@ import React, {useContext} from 'react';
 import {Box, VStack} from "@chakra-ui/react";
 import CookieClicker from "../CookieClicker/CookieClicker";
 import Dashboard from "../Dashboard/Dashboard";
-import {DoubledLevelsGenerator} from "../../Service/LevelsGenerator/DoubledLevelsGenerator.service";
 import {UserProgressServiceContext} from '../../App';
 import {UserProgress} from "../../Service/UserProgress/UserProgress.model";
-
-
-const levelsMap: Map<number, number> = new DoubledLevelsGenerator().create(10);
 
 
 export default function Home() {
@@ -17,22 +13,16 @@ export default function Home() {
 
     const [counter, setCounter] = React.useState(userProgress.clickCounter);
     const [level, setLevel] = React.useState(userProgress.level);
-    const higherLevel: number | undefined = levelsMap.get(level + 1);
 
-    if (higherLevel && counter >= higherLevel) {
-        setLevel((previousLevel) => {
-            const nextLevel = previousLevel + 1
-            localStorageUserProgressService.updateLevel(nextLevel)
-            return nextLevel
-        });
-    }
 
     const handleClickCookie = () => {
         setCounter((previousCounter) => {
             const nextCounter = previousCounter + 1
             localStorageUserProgressService.updateClickCounter(nextCounter)
+            setLevel(localStorageUserProgressService.getUserProgress().level)
             return nextCounter
         });
+
     }
 
 

@@ -1,8 +1,7 @@
 import {UserProgress} from "./UserProgress.model";
 
 export interface UserProgressInterface {
-    getUserProgress(): UserProgress;
-    updateLevel(level: number): void;
+    getUserProgress(): UserProgress,
     updateClickCounter(clickCounter: number): void,
     resetUserProgress(): UserProgress
 }

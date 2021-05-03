@@ -16,19 +16,13 @@ describe("user progress in localStorage", () => {
     it("should reset user progress", () => {
         const localStorageUserProgressService = new LocalStorageUserProgressService();
         localStorageUserProgressService.updateClickCounter(40)
-        localStorageUserProgressService.updateLevel(4)
         expect(localStorageUserProgressService.getUserProgress()).toStrictEqual({level: 4, clickCounter: 40})
         localStorageUserProgressService.resetUserProgress();
         expect(localStorageUserProgressService.getUserProgress()).toStrictEqual({level: 1, clickCounter: 0})
     })
-    it("should update counter", () => {
+    it("should update counter and level", () => {
         const localStorageUserProgressService = new LocalStorageUserProgressService();
-        localStorageUserProgressService.updateClickCounter(99);
-        expect(localStorageUserProgressService.getUserProgress()).toStrictEqual({level: 1, clickCounter: 99})
-    })
-    it("should update level", () => {
-        const localStorageUserProgressService = new LocalStorageUserProgressService();
-        localStorageUserProgressService.updateLevel(5);
-        expect(localStorageUserProgressService.getUserProgress()).toStrictEqual({level: 5, clickCounter: 0})
+        localStorageUserProgressService.updateClickCounter(80);
+        expect(localStorageUserProgressService.getUserProgress()).toStrictEqual({level: 5, clickCounter: 80})
     })
 })
