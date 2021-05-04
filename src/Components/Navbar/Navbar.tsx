@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, useMediaQuery} from "@chakra-ui/react";
-import { createBreakpoints } from "@chakra-ui/theme-tools";
+import {createBreakpoints} from "@chakra-ui/theme-tools";
 import MobileNavbar from "./MobileNavbar/MobileNavbar";
 import DesktopNavbar from "./DesktopNavbar/DesktopNavbar";
 

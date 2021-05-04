@@ -8,7 +8,7 @@ context("test app navigation", () => {
 
     const homeLinkPath: string = "/home";
     const achievementsLinkPath: string = "/achievements";
-    const shopLinkPath: string= "/shop";
+    const shopLinkPath: string = "/shop";
 
     beforeEach(() => {
         cy.visit("/");

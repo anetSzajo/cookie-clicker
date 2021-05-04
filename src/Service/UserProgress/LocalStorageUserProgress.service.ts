@@ -55,5 +55,9 @@ export class LocalStorageUserProgressService implements UserProgressInterface {
         localStorage.setItem("userProgress", JSON.stringify(this._userProgress))
     }
 
-
+    registerShopItem(step: number, seconds: number): void {
+        setInterval(() => {
+            this.updateClickCounter(this._userProgress.clickCounter + step);
+        }, seconds * 1000)
+    }
 }

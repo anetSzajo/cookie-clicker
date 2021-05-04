@@ -18,7 +18,7 @@ export class ApiUserProgressService implements UserProgressInterface {
         fetch(url, {
             method: 'PATCH',
             body: JSON.stringify({
-                click_count: clickCounter
+                    click_count: clickCounter
                 }
             ),
             headers: {

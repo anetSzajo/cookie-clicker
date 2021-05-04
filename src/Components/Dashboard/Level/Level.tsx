@@ -7,7 +7,7 @@ type ComponentProps = {
 
 export default function Level({level}: ComponentProps) {
     return (
-        <Box  d="flex" flexDirection="row" alignItems="center" justifyContent="center">
+        <Box d="flex" flexDirection="row" alignItems="center" justifyContent="center">
             <Text fontSize="4xl" mr="1rem">Level:</Text>
             <Text id="level" fontSize="4xl">{level}</Text>
         </Box>
