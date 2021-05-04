@@ -26,5 +26,6 @@ To run app, please enter the following command in terminal:
 ## To do...
 * Refactor services by implementing one global service
 * Refactor counter to update state when machine is working
+* Get achievements and shop from localStorage
 * Implement tests for achievements ans shop components
 
